@@ -7,7 +7,7 @@ Com o kit de integração em mãos, instale o PG Integrado no terminal
 desejado (N910 ou GPOS700). Atualize **todos** .aar da pasta libs desse
 projeto com as versões disponibilizadas no kit de integração.
 
-###Solicite ao time comercial ou relacionamento com desenvolvedor acesso ao ambiente de sandbox.
+### Solicite ao time comercial ou relacionamento com desenvolvedor acesso ao ambiente de sandbox.
 Os dados necessário para realizar o cadastro no ambiente de sandbox são:
 * Nome razão social:
 * Nome fantasia:
@@ -16,7 +16,7 @@ Os dados necessário para realizar o cadastro no ambiente de sandbox são:
 * Versão do App:
 * Ramo de atuação do App:
 
-###Para realizar a instalação siga os passos:
+### Para realizar a instalação siga os passos:
 Conforme descrito no projeto paygo-smart realize uma operação do tipo INSTALAÇÃO ou ADMINISTRATIVA.
 Caso realize uma operação ADMINISTRATIVA, selecione a opção de menu Instalação.
 * Senha Técnica: 314159
