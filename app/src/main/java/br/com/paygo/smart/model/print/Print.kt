@@ -5,15 +5,17 @@ import android.util.Log
 import br.com.setis.printer.IPrinter
 import br.com.setis.printer.IPrinterListener
 import br.com.setis.printer.PrinterError
-import br.com.setis.printer_newland.PrinterN910
 
-class Print(private val context: Context) : PrinterIntention, IPrinterListener {
-    private val printerNewland: IPrinter by lazy {
-        PrinterN910(context)
+class Print: PrinterIntention, IPrinterListener {
+    override fun print(iPrinter: IPrinter, content: String) {
+        iPrinter.printLine(content, this)
     }
 
-    override fun print(content: String) {
-        printerNewland.printLine(content, this)
+    override fun printFormfeed(iPrinter: IPrinter) {
+        iPrinter.printFormFeed(this)
+        iPrinter.printFormFeed(this)
+        iPrinter.printFormFeed(this)
+        iPrinter.printFormFeed(this)
     }
 
     override fun onSuccess() {

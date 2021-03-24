@@ -8,23 +8,34 @@
     tools:context=".view.MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonConfig"
+        android:id="@+id/buttonInstall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar configuração"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Instalação"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfig"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configuração"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSale"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonInstall" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonSale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar venda"
+        android:text="Venda"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConfig" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfig"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

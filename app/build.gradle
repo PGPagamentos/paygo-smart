@@ -14,29 +14,70 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /**
+         * Necessário para funcionamento da impressão no N910, por conta da pasta com os .so que
+         * fica em libs/armeabi-v7a
+         */
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
+
+    /**
+     * Para instalar um apk no gpos700 é necessário realizar a assinatura do apk:
+     * Além desta forma, pode ser usada aplicação de assinatura. Essa aplicação está disponível no GitHub da Gertec.
+     * https://github.com/gertecdeveloper/AndroidStudio/tree/master/Chaves
+     */
+//    signingConfigs {
+//        gertecDev {
+//            keyAlias 'keyalias da chave'
+//            keyPassword password
+//            storeFile file('caminho do arquivo no seu computador')
+//            storePassword password
+//        }
+//    }
+
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        /**
+         * Para assinar o apk para o GPOS700:
+         */
+//        debug {
+//            signingConfig signingConfigs.gertecDev
+//        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
 dependencies {
-    implementation files('libs/InterfaceAutomacao-v1.8.0.0.aar')
-    implementation files('libs/meSdk-3.6.0-SNAPSHOT.jar')
-    implementation files('libs/printer_n910-v1.1.2.aar')
-    implementation files('libs/printer-v1.1.6.aar')
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation files('libs/meSdk-3.7.95-RELEASE.jar')
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation "androidx.core:core-ktx:1.3.1"
+    implementation "androidx.core:core-ktx:1.3.2"
     implementation "androidx.appcompat:appcompat:1.2.0"
-    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.0"
+
+    //Dependência da interface automação:
+    implementation "org.apache.commons:commons-lang3:3.9"
 }

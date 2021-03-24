@@ -24,4 +24,20 @@ class Transaction(context: Context) : TransactionIntention {
         }
         transaction.confirmaTransacao(confirmacao)
     }
+
+    /**
+     * O método a seguir mostra como realizar a operação de confirmação ou desfasimento de uma venda pendente.
+     * Os status que pode ser usados são:
+     * CONFIRMADO_MANUAL;
+     * O status CONFIRMADO_MANUAL deve ser atribuido quando a venda deve ser confirmada
+     * DESFEITO_MANUAL
+     * O status DESFEITO_MANUAL deve ser atribuido quando a venda deve ser desfeita.
+     */
+    override suspend fun confirmPendingTransaction(pendenteDados: TransacaoPendenteDados){
+        val confirmacao = Confirmacoes()
+        confirmacao.informaStatusTransacao(StatusTransacao.CONFIRMADO_MANUAL)
+
+        transaction.resolvePendencia(pendenteDados, confirmacao)
+    }
+
 }
