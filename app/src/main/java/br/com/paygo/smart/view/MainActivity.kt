@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                         Operacoes.INSTALACAO, UUID.randomUUID().toString())
 
                     //Informa o cnpj do estabelecimento comercial:
-                    entradaTransacao.informaEstabelecimentoCNPJouCPF("33852348838")//05471416000101
+                    entradaTransacao.informaEstabelecimentoCNPJouCPF("05471416000101")//05471416000101
 
                     val saidaTransacao = transaction.makeTransaction(entradaTransacao)
                     println(saidaTransacao.obtemMensagemResultado())
